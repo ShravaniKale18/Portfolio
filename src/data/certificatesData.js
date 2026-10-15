@@ -185,12 +185,49 @@ export const CERTIFICATES_DATA = [
     fileType: "pdf",
     skillsLearned: ["Hackathon Sprint", "Rapid Prototyping", "Team Building", "Problem Statement Ideation"],
     description: "Represented Shri Guru Gobind Singhji Institute of Engineering & Technology (SGGSIET), Nanded at Hack Devengers 2.0."
+  },
+  {
+    id: "great-learning-python-ds",
+    title: "Python Data Structures",
+    issuingOrg: "Great Learning Academy",
+    issueDate: "October 2024",
+    category: "AI/ML",
+    constellationGroup: "Programming & Data Structures",
+    starColor: "#06b6d4", // Electric cyan
+    starSize: "medium",
+    coords: { x: 12, y: 40 },
+    credentialId: "WNCXZXRZ",
+    verificationUrl: "https://www.mygreatlearning.com/certificate/WNCXZXRZ",
+    fileUrl: "/certificates/Python_Data_Structures_Great_Learning.pdf",
+    previewImage: "/certificates/previews/Python_Data_Structures_Great_Learning.webp",
+    fileType: "pdf",
+    skillsLearned: ["Python Data Structures", "Lists & Tuples", "Dictionaries & Sets", "Data Structure Optimization", "Algorithmic Efficiency"],
+    description: "Official certification in Python Data Structures covering lists, tuples, dictionaries, sets, immutable structures, and algorithmic selection."
+  },
+  {
+    id: "ibm-aicte-internship-cer",
+    title: "IBM SkillsBuild Data Analytics with AI Internship Program",
+    issuingOrg: "AICTE, IBM SkillsBuild & BharatCares",
+    issueDate: "September 30, 2026",
+    category: "Internships",
+    constellationGroup: "Industry Internships",
+    starColor: "#10b981", // Emerald green
+    starSize: "large",
+    coords: { x: 88, y: 42 },
+    credentialId: "IBMACBHDAI0391",
+    verificationUrl: null,
+    fileUrl: "/certificates/IBM_SkillsBuild_Data_Analytics_AICTE.pdf",
+    previewImage: "/certificates/previews/IBM_SkillsBuild_Data_Analytics_AICTE.webp",
+    fileType: "pdf",
+    skillsLearned: ["Data Analytics", "AI Implementation", "Enterprise Pipelines", "AICTE Standards", "Data Visualization"],
+    description: "Successfully completed the rigorous 6-week IBM SkillsBuild Data Analytics with AI Internship Program conducted in association with AICTE and BharatCares."
   }
 ];
 
 // Constellation interconnection edges
 export const CONSTELLATION_EDGES = [
   // AI/ML Constellation cluster
+  { from: "great-learning-python-ds", to: "internshala-ml-ai" },
   { from: "internshala-ml-ai", to: "nvidia-llm-rag" },
   { from: "nvidia-llm-rag", to: "nvidia-prompt-eng" },
   { from: "nvidia-llm-rag", to: "nvidia-data-science" },
@@ -204,6 +241,8 @@ export const CONSTELLATION_EDGES = [
   { from: "ibm-skillsbuild-internship", to: "codealpha-frontend-internship" },
   { from: "ibm-skillsbuild-internship", to: "codomox-internship-cer" },
   { from: "codealpha-frontend-internship", to: "codomox-internship-cer" },
+  { from: "codomox-internship-cer", to: "ibm-aicte-internship-cer" },
+  { from: "codealpha-frontend-internship", to: "ibm-aicte-internship-cer" },
 
   // Web & Hackathons Constellation cluster
   { from: "codealpha-frontend-internship", to: "webrush-frontend-hackathon" },
@@ -218,3 +257,4 @@ export const CERTIFICATE_CATEGORIES = [
   "Web Development",
   "Other"
 ];
+

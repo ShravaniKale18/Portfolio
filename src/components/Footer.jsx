@@ -7,13 +7,13 @@ export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior});
+    window.scrollTo({ top: 0, behavior });
   };
 
   return (
     <footer className="border-t border-white/10 bg-midnight-950/90 py-12 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-white/5">
           {/* Monogram Brand */}
           <div className="flex items-center gap-3">
@@ -40,7 +40,8 @@ export const Footer = () => {
             </a>
             <span>•</span>
             <a
-              href={personal.linkedinUrl}
+              // href={personal.linkedinUrl}
+              nref="www.linkedin.com/in/kale-shravani"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-white transition-colors"

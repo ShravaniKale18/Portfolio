@@ -43,18 +43,28 @@ export const ProjectGalaxyListView = ({
   if (isCompact) {
     return (
       <div className="space-y-4">
-        {projects.map((project) => {
+        {projects.map((project, idx) => {
           const isSelected = selectedProject?.id === project.id;
           const isHovered = hoveredProject?.id === project.id;
+          const isFlagship = project.featured || project.id === 'phishguard-ai-analyzer' || project.id === 'ecommerce-sales-ml-system' || project.id === 'github-repository-assistant';
 
           return (
             <article
               key={project.id}
               id={`project-card-${project.id}`}
+              tabIndex={0}
+              role="button"
+              aria-label={`Project: ${project.title}. Click or press Enter to focus on map.`}
               onMouseEnter={() => onHoverProject(project)}
               onMouseLeave={() => onHoverProject(null)}
               onClick={() => onSelectProject(project)}
-              className={`rounded-2xl transition-all duration-300 border p-5 cursor-pointer relative group flex flex-col justify-between ${
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  onSelectProject(project);
+                }
+              }}
+              className={`rounded-2xl transition-all duration-300 border p-5 cursor-pointer relative group flex flex-col justify-between focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-cyan ${
                 isSelected
                   ? 'bg-midnight-900/90 border-electric-cyan ring-1 ring-electric-cyan/40 shadow-lg shadow-electric-cyan/10'
                   : isHovered
@@ -71,6 +81,11 @@ export const ProjectGalaxyListView = ({
                     <span className="text-[11px] font-mono text-slate-300">
                       {project.category}
                     </span>
+                    {isFlagship && (
+                      <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-electric-cyan/15 text-electric-cyan border border-electric-cyan/30">
+                        Flagship
+                      </span>
+                    )}
                   </div>
 
                   <div className="flex items-center gap-1.5">

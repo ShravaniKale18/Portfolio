@@ -1,12 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { 
-  ArrowDown, 
-  ArrowUpRight, 
-  Sparkles, 
-  Brain, 
-  Code2, 
-  Layout, 
-  Cpu, 
+import {
+  ArrowDown,
+  ArrowUpRight,
+  Sparkles,
+  Brain,
+  Code2,
+  Layout,
+  Cpu,
   Terminal,
   ExternalLink
 } from 'lucide-react';
@@ -35,7 +35,7 @@ export const Hero = () => {
       const rect = orbitRef.current.getBoundingClientRect();
       const centerX = rect.left + rect.width / 2;
       const centerY = rect.top + rect.height / 2;
-      
+
       // Calculate normalized delta from center (-1 to 1) with dampening
       const deltaX = (e.clientX - centerX) / (window.innerWidth / 2);
       const deltaY = (e.clientY - centerY) / (window.innerHeight / 2);
@@ -58,13 +58,13 @@ export const Hero = () => {
       {/* Ambient background glow & atmospheric depth */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[450px] bg-gradient-to-tr from-electric-violet/15 via-electric-indigo/15 to-electric-cyan/20 blur-[150px] -z-10 rounded-full pointer-events-none" />
       <div className="absolute bottom-12 right-12 w-[420px] h-[420px] bg-electric-cyan/10 blur-[130px] -z-10 rounded-full pointer-events-none" />
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          
+
           {/* LEFT SIDE: Identity, Headline, Supporting Copy & Functional CTAs */}
           <div className="lg:col-span-7 space-y-6 sm:space-y-7 text-left z-10">
-            
+
             {/* Top Row: Availability Badge & Compact Category Tag */}
             <div className="flex flex-wrap items-center gap-3">
               {personal.statusBadge?.isAvailable && (
@@ -139,7 +139,7 @@ export const Hero = () => {
                 <p className="text-[11px] font-mono text-slate-400">Distinction</p>
               </div>
               <div>
-                <p className="text-xl sm:text-2xl font-display font-bold text-electric-violet">83+ DSA</p>
+                <p className="text-xl sm:text-2xl font-display font-bold text-electric-violet">100+ DSA</p>
                 <p className="text-[11px] font-mono text-slate-400">LeetCode Solved</p>
               </div>
             </div>
@@ -147,7 +147,7 @@ export const Hero = () => {
           </div>
 
           {/* RIGHT SIDE: "PERSONAL ORBIT" INTERACTIVE PORTRAIT EXPERIENCE */}
-          <div 
+          <div
             ref={orbitRef}
             className="lg:col-span-5 flex items-center justify-center relative select-none"
             style={{
@@ -162,7 +162,7 @@ export const Hero = () => {
               <div className="absolute inset-0 bg-gradient-to-tr from-electric-violet/25 via-electric-indigo/20 to-electric-cyan/25 blur-3xl rounded-full pointer-events-none" />
 
               {/* OUTER ORBITAL RING 1 (Cyan / Elliptical Celestial Orbit) */}
-              <div 
+              <div
                 className="absolute w-[330px] h-[330px] sm:w-[410px] sm:h-[410px] rounded-full border border-electric-cyan/25 border-dashed animate-orbit-slow pointer-events-none"
               >
                 {/* Traveling Satellite Node 1 (Cyan Pulsar) */}
@@ -178,7 +178,7 @@ export const Hero = () => {
               </div>
 
               {/* INNER ORBITAL RING 2 (Violet / Counter-rotating Orbit) */}
-              <div 
+              <div
                 className="absolute w-[275px] h-[275px] sm:w-[340px] sm:h-[340px] rounded-full border border-electric-violet/30 animate-orbit-reverse pointer-events-none"
               >
                 {/* Traveling Satellite Node 3 (Violet Pulsar) */}
@@ -198,10 +198,10 @@ export const Hero = () => {
 
               {/* PROMINENT CIRCULAR PORTRAIT FRAME (Shravani Kale's photograph) */}
               <div className="relative w-48 h-48 sm:w-60 sm:h-60 rounded-full p-1.5 bg-gradient-to-br from-electric-cyan/60 via-electric-indigo/30 to-electric-violet/60 shadow-2xl shadow-electric-violet/20 z-10 group">
-                
+
                 {/* Inner Glow Rim */}
                 <div className="w-full h-full rounded-full overflow-hidden bg-midnight-950 border-2 border-white/20 relative shadow-inner">
-                  
+
                   <img
                     src="/shravanikale_img.jpeg"
                     alt="Shravani Kale - Profile Portrait"
@@ -225,12 +225,12 @@ export const Hero = () => {
               </div>
 
               {/* ILLUMINATED CYBERNETIC GROUNDING PLATFORM (Below the portrait) */}
-              <div 
-                className="absolute -bottom-8 sm:-bottom-10 w-[240px] sm:w-[300px] h-12 rounded-[100%] bg-gradient-to-t from-electric-cyan/20 via-electric-violet/10 to-transparent blur-md pointer-events-none" 
+              <div
+                className="absolute -bottom-8 sm:-bottom-10 w-[240px] sm:w-[300px] h-12 rounded-[100%] bg-gradient-to-t from-electric-cyan/20 via-electric-violet/10 to-transparent blur-md pointer-events-none"
                 aria-hidden="true"
               />
-              <div 
-                className="absolute -bottom-6 sm:-bottom-7 w-[200px] sm:w-[260px] h-6 rounded-[100%] border border-electric-cyan/30 pointer-events-none" 
+              <div
+                className="absolute -bottom-6 sm:-bottom-7 w-[200px] sm:w-[260px] h-6 rounded-[100%] border border-electric-cyan/30 pointer-events-none"
                 aria-hidden="true"
               />
 
@@ -239,7 +239,7 @@ export const Hero = () => {
               {/* ============================================================== */}
 
               {/* 1. TOP-RIGHT: AI / ML */}
-              <div 
+              <div
                 className="absolute -top-1 sm:top-2 right-0 sm:-right-4 z-20 transition-transform duration-300 hover:scale-105"
                 style={{
                   transform: `translate3d(${mousePos.x * 0.8}px, ${mousePos.y * 0.8}px, 0)`
@@ -257,7 +257,7 @@ export const Hero = () => {
               </div>
 
               {/* 2. TOP-LEFT: Web Development */}
-              <div 
+              <div
                 className="absolute top-4 sm:top-6 -left-3 sm:-left-6 z-20 transition-transform duration-300 hover:scale-105"
                 style={{
                   transform: `translate3d(${-mousePos.x * 0.7}px, ${-mousePos.y * 0.7}px, 0)`
@@ -275,7 +275,7 @@ export const Hero = () => {
               </div>
 
               {/* 3. BOTTOM-LEFT: Python */}
-              <div 
+              <div
                 className="absolute bottom-6 sm:bottom-8 -left-4 sm:-left-8 z-20 transition-transform duration-300 hover:scale-105"
                 style={{
                   transform: `translate3d(${mousePos.x * 0.6}px, ${-mousePos.y * 0.6}px, 0)`
@@ -293,7 +293,7 @@ export const Hero = () => {
               </div>
 
               {/* 4. BOTTOM-RIGHT: Systems */}
-              <div 
+              <div
                 className="absolute bottom-4 sm:bottom-6 right-0 sm:-right-4 z-20 transition-transform duration-300 hover:scale-105"
                 style={{
                   transform: `translate3d(${-mousePos.x * 0.6}px, ${mousePos.y * 0.6}px, 0)`

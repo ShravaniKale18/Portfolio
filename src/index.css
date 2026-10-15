@@ -115,10 +115,56 @@
   animation: pulse-subtle 4s ease-in-out infinite;
 }
 
+/* Continuous marquee & smooth scroll track */
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 45s linear infinite;
+}
+
+.animate-marquee:hover,
+.animate-marquee:focus-within {
+  animation-play-state: paused;
+}
+
+/* Utility to hide native scrollbar while retaining scrollability */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+
 @media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
   .animate-orbit-slow,
   .animate-orbit-reverse,
   .animate-pulse-subtle {
     animation: none !important;
   }
 }
+
+/* Accessible focus ring utility */
+:focus-visible {
+  outline: 2px solid #06b6d4;
+  outline-offset: 3px;
+}
+

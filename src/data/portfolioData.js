@@ -106,6 +106,66 @@ export const PORTFOLIO_DATA = {
 
   projects: [
     {
+      id: "phishguard-ai-analyzer",
+      title: "PhishGuard — AI Phishing Message & URL Analyzer",
+      shortDescription: "AI-powered defensive cybersecurity system detecting, analyzing, and explaining phishing and social-engineering attacks using rule-based heuristics, LangChain, RAG with FAISS, and Hugging Face LLMs.",
+      problemSolved: "Traditional spam filters only output opaque binary flags or scores without explaining the psychological pressure tactics, urgency cues, or malicious URL anatomy to the user.",
+      solution: "Engineered a two-layer defense pipeline: a deterministic rule-based engine scoring risk (0–100) across 7 threat vectors, combined with FAISS semantic retrieval over local cybersecurity knowledge bases and Hugging Face LLMs providing explainable security assessments and defensive actions.",
+      keyFeatures: [
+        "Multi-vector threat detection: urgency/pressure tactics, credential & OTP theft, financial extortion, and URL anomalies.",
+        "Deterministic heuristic scoring engine (0–100) with calibrated LOW / MEDIUM / HIGH risk classifications.",
+        "RAG pipeline using Sentence Transformers, FAISS vector index, and cybersecurity knowledge bases.",
+        "Contextual AI explanations with structured warning signs and defensive recommendations.",
+        "Interactive Streamlit web dashboard with real-time heuristic gauges and live demo deployment."
+      ],
+      implementationDetails: [
+        "Constructed dual-tier analyzer (analyzer.py & llm_analyzer.py) separating deterministic signals from generative contextual reasoning.",
+        "Indexed domain knowledge (phishing, social engineering, suspicious URLs) into FAISS with Sentence Transformers embeddings.",
+        "Configured LangChain prompt orchestration constraining the LLM to defensive analysis and explicit indicators.",
+        "Built for HackDevengers 24-Hour National Hackathon; deployed on Streamlit Cloud with zero external database dependencies."
+      ],
+      whatILearned: "Mastered defensive cybersecurity engineering, explainable AI architectures, RAG knowledge retrieval with FAISS, and prompt boundary design for security assessment.",
+      category: "AI/ML",
+      technologies: ["Python", "LangChain", "RAG", "FAISS", "Hugging Face", "Sentence Transformers", "Streamlit", "Cybersecurity"],
+      githubUrl: "https://github.com/ShravaniKale18/PhishGaurd---AI-Phishing-Message-Analyzer.git",
+      liveUrl: "https://phishgaurd---ai-phishing-message-analyzer-b5aw8qqdualgw83rnvkk.streamlit.app/",
+      featured: true,
+      stats: { metric: "Hackathon", label: "24-Hr HackDevengers", highlight: "RAG + FAISS" },
+      status: "Completed",
+      timeline: "HackDevengers 2026",
+      isPlaceholder: false
+    },
+    {
+      id: "ecommerce-sales-ml-system",
+      title: "E-Commerce ML: Segmentation, Revenue & Purchase Prediction",
+      shortDescription: "End-to-end Machine Learning system trained on a 25,000-session e-commerce dataset, featuring a Flask REST API backend, Streamlit dashboard, and 3 ML models for purchase prediction, revenue forecasting, and RFM customer segmentation.",
+      problemSolved: "E-commerce retailers struggle to unify visitor behavioral intent, revenue forecasts, and customer lifetime value into a low-latency operational pipeline.",
+      solution: "Trained Random Forest (ROC-AUC ~0.90) for binary purchase prediction, XGBoost Regressor for session revenue forecasting, and K-Means (K=4) for RFM customer segmentation, connected via Flask REST endpoints to an interactive multi-tab Streamlit dashboard.",
+      keyFeatures: [
+        "Random Forest Classifier predicting session conversion with probability confidence gauges (ROC-AUC 0.88–0.93).",
+        "XGBoost Regressor forecasting session revenue with engineered interaction features.",
+        "K-Means RFM clustering segmenting shoppers into Champions, At-Risk High Value, Recent Low Spend, and Hibernating.",
+        "Decoupled Flask REST API backend (/api/predict_purchase, /api/predict_revenue, /api/segment_customer, /api/batch_predict).",
+        "Comprehensive Streamlit analytical dashboard featuring KPI cards, Plotly visualizations, and batch prediction."
+      ],
+      implementationDetails: [
+        "Conducted end-to-end data preprocessing on 25K records × 29 columns with feature engineering (price_per_item, potential_revenue).",
+        "Built modular model persistence pipeline using joblib across classifiers, regressors, scalers, and encoders.",
+        "Engineered production-ready Flask REST endpoints with CORS support, input validation, and health checks.",
+        "Constructed responsive Streamlit UI with dynamic input sliders, radar charts, and trend analytics."
+      ],
+      whatILearned: "Acquired deep experience with multi-model architectures, RFM behavioral clustering, decoupled Flask API microservices, and end-to-end tabular ML workflows.",
+      category: "Python",
+      technologies: ["Python", "Scikit-learn", "XGBoost", "Flask", "Streamlit", "K-Means (RFM)", "Pandas", "Plotly", "Joblib"],
+      githubUrl: "https://github.com/ShravaniKale18/E-Commerce-Sales-Customer-Segmentation-Purchase-Prediction1.git",
+      liveUrl: undefined,
+      featured: true,
+      stats: { metric: "25K Sessions", label: "3 ML Models", highlight: "Flask + Streamlit" },
+      status: "Completed",
+      timeline: "2026",
+      isPlaceholder: false
+    },
+    {
       id: "github-repository-assistant",
       title: "GitHub Repository Assistant (RAG Pipeline)",
       shortDescription: "An AI-powered Retrieval-Augmented Generation (RAG) system enabling natural language queries over any public GitHub codebase with semantic search and context-grounded synthesis.",
@@ -193,6 +253,36 @@ export const PORTFOLIO_DATA = {
       isPlaceholder: false
     },
     {
+      id: "imdb-movie-sentiment-analyzer",
+      title: "IMDB Movie Review Sentiment Analyzer",
+      shortDescription: "A Natural Language Processing (NLP) and Machine Learning system trained on 50,000 IMDB reviews to classify sentiment (Positive 🔥 / Negative ❄️) with 87.04% accuracy, probability confidence scoring, and interactive Streamlit UI.",
+      problemSolved: "Analyzing large volumes of unstructured audience reviews manually is slow, error-prone, and lacks objective quantification of viewer sentiment nuances.",
+      solution: "Engineered an NLP pipeline featuring HTML tag stripping, regex punctuation cleaning, stopword filtration via NLTK, and CountVectorizer feature extraction (top 5,000 n-grams). Benchmarked Gaussian Naive Bayes (76.42%), Multinomial Naive Bayes (84.56%), and tuned Logistic Regression (87.04%), serializing the best model for real-time Streamlit inference.",
+      keyFeatures: [
+        "End-to-end NLP text preprocessing: automated regex cleaning, HTML stripping, and NLTK stopword elimination.",
+        "Bag-of-Words feature vectorization with fitted CountVectorizer on 5,000 salient linguistic tokens.",
+        "Comprehensive model benchmarking across Naive Bayes and Logistic Regression achieving 87.04% test accuracy.",
+        "Instantaneous confidence probability score and sentiment polarity prediction (Positive 🔥 / Negative ❄️).",
+        "Streamlit interactive web dashboard with robust local NLTK caching and error handling."
+      ],
+      implementationDetails: [
+        "Preprocessed 50,000 IMDB review records (49,582 unique) handling duplicates and class balance.",
+        "Engineered CountVectorizer matrix transformations and tuned Logistic Regression with optimal regularization.",
+        "Serialized fitted models (best_model_lr.pkl & vectorizer.pkl) for instantaneous sub-10ms response times.",
+        "Constructed a clean, user-friendly Streamlit interface with confidence gauges and sample review inputs."
+      ],
+      whatILearned: "Deepened practical NLP expertise in tokenization, vocabulary matrix sparsity, stopword dynamics, text classification metrics (Precision, Recall, ROC-AUC), and model deployment.",
+      category: "Python",
+      technologies: ["Python", "NLP", "Scikit-learn", "NLTK", "Logistic Regression", "Streamlit", "CountVectorizer", "Pandas"],
+      githubUrl: "https://github.com/ShravaniKale18/Movie-Sentiment-Analysis.git",
+      liveUrl: undefined,
+      featured: true,
+      stats: { metric: "87.04% Acc", label: "50K IMDB Dataset", highlight: "NLP & ML" },
+      status: "Completed",
+      timeline: "2025",
+      isPlaceholder: false
+    },
+    {
       id: "smart-expense-manager",
       title: "Smart Expense Manager Full-Stack System",
       shortDescription: "A full-stack financial tracking application featuring normalized SQLite relational schemas, RESTful CRUD endpoints, and real-time category-wise balance analytics.",
@@ -219,59 +309,6 @@ export const PORTFOLIO_DATA = {
       stats: { metric: "Full-Stack", label: "Node & SQLite", highlight: "CRUD Architecture" },
       status: "Completed",
       timeline: "2024",
-      isPlaceholder: false
-    },
-    {
-      id: "password-strength-checker",
-      title: "Password Strength & Shannon Entropy Analyzer",
-      shortDescription: "A security utility evaluating password resilience using Shannon entropy calculation, regex heuristics, and cryptographic vulnerability detection.",
-      problemSolved: "Most simple checkers only evaluate character length, giving users a false sense of security against dictionary attacks and patterned inputs.",
-      solution: "Formulated a Python heuristic analyzer that computes mathematical Shannon entropy, detects common keyboard walking patterns, and generates actionable hardening recommendations.",
-      keyFeatures: [
-        "Mathematical Shannon entropy computation in bits of information.",
-        "Pattern and repeated sequence detection using optimized regular expressions.",
-        "Instantaneous visual resilience scoring and cryptographic passphrase generation."
-      ],
-      implementationDetails: [
-        "Constructed entropy calculation algorithms modeling character space probabilities.",
-        "Designed comprehensive heuristics identifying dictionary roots and leetspeak substitutions.",
-        "Packaged with a clean interactive terminal interface and modular library exports."
-      ],
-      whatILearned: "Deepened knowledge of cybersecurity fundamentals, mathematical entropy formulas, and regex performance optimization.",
-      category: "Python",
-      technologies: ["Python", "Regex", "Shannon Entropy", "Security Heuristics"],
-      githubUrl: "https://github.com/ShravaniKale18",
-      liveUrl: undefined,
-      featured: false,
-      stats: { metric: "Entropy Math", label: "Shannon Bit Metric", highlight: "Security Tool" },
-      status: "Completed",
-      timeline: "Academic Coursework",
-      isPlaceholder: false
-    },
-    {
-      id: "academic-dbms-portal",
-      title: "Student Academic Records & Query Management System",
-      shortDescription: "A relational database management portal simulating university department grade tracking, course enrollment, and relational query reporting.",
-      problemSolved: "Manual record administration leads to redundant data entry, concurrency issues, and lack of automated GPA tracking.",
-      solution: "Engineered a normalized 3NF relational schema in MySQL with complex multi-table joins, views, and aggregate procedures connected to a Python backend.",
-      keyFeatures: [
-        "Fully normalized 3NF relational database schema across students, departments, and exams.",
-        "Complex SQL queries, views, and stored procedures for automated semester GPA computation.",
-        "Python administrative console for CRUD transactions with role-based validation."
-      ],
-      implementationDetails: [
-        "Engineered normalized 3NF relational schemas preventing update and delete anomalies.",
-        "Wrote complex SQL joins, indexing strategies, and aggregate queries for automated GPA computation.",
-        "Connected with Python backend interface for user authentication and administrative role access."
-      ],
-      whatILearned: "Solidified database normalization theory (1NF to 3NF), index efficiency, transactions, and foreign key cascades.",
-      category: "Academic Projects",
-      technologies: ["Python", "MySQL / SQL", "Database Design", "Relational Modeling"],
-      githubUrl: "https://github.com/ShravaniKale18",
-      featured: false,
-      stats: { metric: "3NF Normal", label: "Relational Schema", highlight: "SQL Stored Procs" },
-      status: "Completed",
-      timeline: "Academic Coursework",
       isPlaceholder: false
     }
   ],
@@ -352,6 +389,35 @@ export const PORTFOLIO_DATA = {
       skills: ["HTML5", "CSS3", "JavaScript", "Responsive Design"]
     },
     {
+      id: "exp-hackdevengers",
+      role: "PhishGuard Developer",
+      organization: "Hack Devengers 2.",
+      period: "September 2026",
+      type: "Hackathon",
+      badge: "24-Hr National Hackathon",
+      projectLink: "https://phishgaurd---ai-phishing-message-analyzer-b5aw8qqdualgw83rnvkk.streamlit.app/",
+      githubUrl: "https://github.com/ShravaniKale18/PhishGaurd---AI-Phishing-Message-Analyzer.git",
+      description: [
+        "Architected and deployed 'PhishGuard' — an AI phishing and social engineering analyzer utilizing LangChain, FAISS RAG, and Hugging Face in a 24-hour sprint.",
+        "Engineered dual-layer defensive checks with 7 threat vector heuristics, zero-database architecture, and a live Streamlit dashboard.",
+        "Pitched architecture to industry jury, demonstrating explainable AI reasoning and risk mitigation."
+      ],
+      skills: ["Cybersecurity", "LangChain", "RAG with FAISS", "Streamlit", "Hugging Face"]
+    },
+    {
+      id: "exp-webrush",
+      role: "Speed Frontend Builder",
+      organization: "WebRush 6-Hour Hackathon • Frontend Arena",
+      period: "September 2026",
+      type: "Speed Hackathon",
+      badge: "Sprint Hackathon",
+      description: [
+        "Designed and implemented high-performance responsive web interfaces under rigorous 6-hour time constraints.",
+        "Mastered rapid layout structuring, accessible UI elements, and CSS optimization without external dependencies."
+      ],
+      skills: ["Speed Coding", "UI Architecture", "CSS Optimization", "Rapid Delivery"]
+    },
+    {
       id: "exp-internshala-iitm",
       role: "Machine Learning with AI Training (Top Performer)",
       organization: "Internshala & IITM Pravartak",
@@ -388,7 +454,7 @@ export const PORTFOLIO_DATA = {
     },
     {
       id: "lab-3",
-      title: "Full-Stack & Microservices Architecture",
+      title: "Full-Stack Developement & Microservices Architecture",
       topic: "Software Engineering",
       currentStatus: "Building",
       whatImLearning: "RESTful API design, database connection pooling, token-based authentication, and stateful React interfaces.",

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { 
-  Copy, 
-  Check, 
-  Send, 
-  MapPin, 
+import {
+  Copy,
+  Check,
+  Send,
+  MapPin,
   ArrowUpRight,
   Sparkles,
   AlertCircle
@@ -37,7 +37,7 @@ export const Contact = () => {
     }
 
     setStatus('submitting');
-    
+
     setTimeout(() => {
       setStatus('ready_to_send');
       try {
@@ -55,7 +55,7 @@ export const Contact = () => {
       )}&body=${encodeURIComponent(
         `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
       )}`;
-      
+
       window.location.href = mailtoLink;
     }, 600);
   };
@@ -63,7 +63,7 @@ export const Contact = () => {
   return (
     <section id="contact" className="py-24 sm:py-32 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4 border-b border-white/10 pb-8">
           <div>
@@ -82,12 +82,12 @@ export const Contact = () => {
 
         {/* Split Contact Form & Direct Details */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          
+
           {/* Left Column: Direct Connect & Info */}
           <div className="lg:col-span-5 space-y-6">
-            
+
             <div className="p-8 rounded-3xl bg-midnight-900/60 border border-white/10 glass-panel space-y-6">
-              
+
               <div className="space-y-2">
                 <span className="text-xs font-mono text-electric-violet uppercase tracking-wider">
                   Direct Communication
@@ -136,7 +136,7 @@ export const Contact = () => {
                 </div>
                 <div className="flex items-center gap-2.5">
                   <span className="w-2 h-2 rounded-full bg-emerald-400 ml-1 mr-1 animate-pulse" />
-                  <span>Available for 2024–2025 Engineering Internships</span>
+                  <span>Available for Engineering Internships</span>
                 </div>
               </div>
 
@@ -172,7 +172,7 @@ export const Contact = () => {
           {/* Right Column: Functional Message Form */}
           <div className="lg:col-span-7">
             <div className="p-8 rounded-3xl bg-midnight-900/60 border border-white/10 glass-panel">
-              
+
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-1.5">
@@ -186,7 +186,7 @@ export const Contact = () => {
                       placeholder="e.g. Aditi Sharma"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-midnight-950/80 border border-white/10 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-electric-cyan transition-colors"
+                      className="w-full px-4 py-3 rounded-xl bg-midnight-950/80 border border-white/10 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-electric-cyan focus-visible:ring-2 focus-visible:ring-electric-cyan transition-colors"
                     />
                   </div>
 
@@ -201,7 +201,7 @@ export const Contact = () => {
                       placeholder="aditi@example.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-midnight-950/80 border border-white/10 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-electric-cyan transition-colors"
+                      className="w-full px-4 py-3 rounded-xl bg-midnight-950/80 border border-white/10 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-electric-cyan focus-visible:ring-2 focus-visible:ring-electric-cyan transition-colors"
                     />
                   </div>
                 </div>
@@ -216,7 +216,7 @@ export const Contact = () => {
                     placeholder="Project Inquiry / Internship Opportunity"
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-midnight-950/80 border border-white/10 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-electric-cyan transition-colors"
+                    className="w-full px-4 py-3 rounded-xl bg-midnight-950/80 border border-white/10 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-electric-cyan focus-visible:ring-2 focus-visible:ring-electric-cyan transition-colors"
                   />
                 </div>
 
@@ -231,7 +231,7 @@ export const Contact = () => {
                     placeholder="Tell me about your project, team, or opportunity..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-midnight-950/80 border border-white/10 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-electric-cyan transition-colors resize-none"
+                    className="w-full px-4 py-3 rounded-xl bg-midnight-950/80 border border-white/10 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-electric-cyan focus-visible:ring-2 focus-visible:ring-electric-cyan transition-colors resize-none"
                   />
                 </div>
 
@@ -252,7 +252,7 @@ export const Contact = () => {
                 <button
                   type="submit"
                   disabled={status === 'submitting'}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-xl bg-gradient-to-r from-electric-violet to-electric-cyan text-white text-sm font-semibold shadow-lg shadow-electric-violet/25 hover:shadow-electric-violet/40 hover:scale-[1.01] active:scale-[0.99] transition-all disabled:opacity-60"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-xl bg-gradient-to-r from-electric-violet to-electric-cyan text-white text-sm font-semibold shadow-lg shadow-electric-violet/25 hover:shadow-electric-violet/40 hover:scale-[1.01] active:scale-[0.99] transition-all disabled:opacity-60 focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-cyan"
                 >
                   <Send className="w-4 h-4" />
                   <span>Send Message via Email</span>

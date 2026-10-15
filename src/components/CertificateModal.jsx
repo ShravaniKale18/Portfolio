@@ -370,15 +370,15 @@ export const CertificateModal = ({
               </div>
             )}
 
-            {/* Verification Link */}
-            {certificate.verificationUrl && (
+            {/* Verification Link / Credential Verification Box */}
+            {certificate.verificationUrl ? (
               <div className="p-4 rounded-2xl bg-gradient-to-r from-electric-violet/15 to-electric-cyan/15 border border-electric-violet/30 space-y-2">
                 <p className="text-xs font-semibold text-white flex items-center gap-1.5">
                   <ShieldCheck className="w-4 h-4 text-emerald-400" />
                   Verifiable Credential
                 </p>
                 <p className="text-[11px] text-slate-300 leading-normal">
-                  This certificate has an official verification link from the issuing organization.
+                  This certificate has an official online verification link from the issuing organization.
                 </p>
                 <a
                   href={certificate.verificationUrl}
@@ -389,6 +389,16 @@ export const CertificateModal = ({
                   <span>Verify at {certificate.issuingOrg}</span>
                   <ExternalLink className="w-3.5 h-3.5" />
                 </a>
+              </div>
+            ) : (
+              <div className="p-4 rounded-2xl bg-midnight-950/70 border border-white/10 space-y-1.5">
+                <p className="text-xs font-semibold text-white flex items-center gap-1.5">
+                  <ShieldCheck className="w-4 h-4 text-electric-cyan" />
+                  Official Academic / Industry Credential
+                </p>
+                <p className="text-[11px] text-slate-400 leading-normal">
+                  Issued directly by {certificate.issuingOrg}. The original physical/PDF document is preserved and downloadable below.
+                </p>
               </div>
             )}
 
