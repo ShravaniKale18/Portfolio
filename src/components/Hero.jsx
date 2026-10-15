@@ -126,9 +126,22 @@ export const Hero = () => {
                   </div>
 
                   {/* Center Monogram / Portrait Avatar */}
-                  <div className="absolute w-24 h-24 rounded-full bg-gradient-to-br from-midnight-800 to-midnight-950 border-2 border-electric-violet/50 shadow-inner flex flex-col items-center justify-center">
-                    <Sparkles className="w-6 h-6 text-electric-cyan mb-1 animate-pulse" />
-                    <span className="font-display font-bold text-sm text-white">SK.DEV</span>
+                  <div className="absolute w-24 h-24 rounded-full overflow-hidden bg-gradient-to-br from-midnight-800 to-midnight-950 border-2 border-electric-violet/50 shadow-inner flex flex-col items-center justify-center group/avatar">
+                    <img 
+                      src="/shravanikale_img.jpeg" 
+                      alt="Shravani Kale"
+                      className="w-full h-full object-cover object-top hover:scale-110 transition-transform duration-500"
+                      onError={(e) => {
+                        e.currentTarget.style.display = 'none';
+                        if (e.currentTarget.nextElementSibling) {
+                          e.currentTarget.nextElementSibling.style.display = 'flex';
+                        }
+                      }}
+                    />
+                    <div className="hidden absolute inset-0 flex-col items-center justify-center">
+                      <Sparkles className="w-6 h-6 text-electric-cyan mb-1 animate-pulse" />
+                      <span className="font-display font-bold text-sm text-white">SK.DEV</span>
+                    </div>
                   </div>
 
                   <div className="mt-5 space-y-1">

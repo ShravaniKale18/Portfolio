@@ -84,6 +84,28 @@ export const About = () => {
           {/* Right Column: Editorial Snapshot Cards */}
           <div className="lg:col-span-5 space-y-4">
             
+            {/* Profile Photo & Bio Snapshot Card */}
+            <div className="p-6 rounded-2xl bg-midnight-900/80 border border-white/10 glass-panel flex items-center gap-4">
+              <div className="relative w-16 h-16 rounded-2xl overflow-hidden border border-electric-violet/40 shrink-0 shadow-lg shadow-electric-violet/10">
+                <img 
+                  src="/shravanikale_img.jpeg" 
+                  alt="Shravani Kale"
+                  className="w-full h-full object-cover object-top"
+                />
+              </div>
+              <div className="min-w-0">
+                <span className="text-[10px] font-mono uppercase text-electric-cyan tracking-wider">
+                  Engineer & Builder
+                </span>
+                <h4 className="text-base font-display font-bold text-white truncate">
+                  Shravani Ravi Kale
+                </h4>
+                <p className="text-xs text-slate-400 font-mono">
+                  Latur, MH • 8.98 CGPA
+                </p>
+              </div>
+            </div>
+
             {/* Current Academic Status Card */}
             <div className="p-6 rounded-2xl bg-gradient-to-br from-midnight-900/80 to-midnight-850/80 border border-white/10 glass-panel">
               <div className="flex items-start justify-between">
