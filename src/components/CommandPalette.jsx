@@ -60,7 +60,7 @@ export const CommandPalette = ({ isOpen, onClose }) => {
     {
       id: 'sec-projects',
       title: 'View Featured Projects',
-      subtitle: 'Password Strength Analyzer, Portfolio, and Engineering Systems',
+      subtitle: 'PhishGuard, GitHub RAG Assistant, Multi-Agent Research, and ML systems',
       category: 'Navigation',
       icon: <FileText className="w-4 h-4 text-emerald-400" />,
       action: () => {

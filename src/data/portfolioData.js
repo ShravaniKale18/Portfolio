@@ -168,28 +168,29 @@ export const PORTFOLIO_DATA = {
     {
       id: "github-repository-assistant",
       title: "GitHub Repository Assistant (RAG Pipeline)",
-      shortDescription: "An AI-powered Retrieval-Augmented Generation (RAG) system enabling natural language queries over any public GitHub codebase with semantic search and context-grounded synthesis.",
-      problemSolved: "Navigating large, unfamiliar codebases manually is tedious and slow. Traditional keyword search misses contextual semantics and cannot explain architectural relationships.",
-      solution: "Engineered an end-to-end RAG architecture that recursively ingests repository source files via GitHub API, generates semantic embeddings via Hugging Face, indexes vectors in ChromaDB, and uses instruction-tuned LLMs (Qwen2.5-72B-Instruct) with LangChain to answer queries with precise line-level attribution.",
+      shortDescription: "AI-powered RAG application that lets you enter any GitHub repo URL and chat with the codebase — retrieving relevant source and docs, then answering in natural language with Qwen 2.5 72B Instruct.",
+      problemSolved: "A normal LLM does not know the contents of an unfamiliar or recently changed GitHub repository. Manual file search is slow, and keyword search misses architecture, auth flows, and how a function actually works.",
+      solution: "Built a Streamlit RAG pipeline: load files via the GitHub API (PyGithub), chunk documents, embed with Hugging Face, store vectors in ChromaDB, retrieve semantically similar chunks for each question, and ground Qwen/Qwen2.5-72B-Instruct (Hugging Face Router + LangChain ChatOpenAI) on that context.",
       keyFeatures: [
-        "Recursive codebase ingestion supporting multi-file architectures via GitHub REST API.",
-        "Semantic similarity vector retrieval powered by ChromaDB and high-dimensional Hugging Face embeddings.",
-        "Context-grounded reasoning using Qwen2.5-72B-Instruct via LangChain ChatOpenAI interface.",
-        "Interactive Streamlit chat UI with conversation history, citation snippets, and syntax highlighting."
+        "Paste any accessible GitHub repository URL and recursively fetch supported source and documentation files.",
+        "Intelligent text chunking so large files retrieve efficiently instead of overflowing the context window.",
+        "Hugging Face embeddings + ChromaDB for meaning-based search (not keyword matching).",
+        "Conversational Streamlit chat: What does this project do? How does authentication work? Explain app.py.",
+        "Answers are generated from retrieved repository chunks, not only the model's general knowledge."
       ],
       implementationDetails: [
-        "Constructed a robust recursive GitHub API crawler handling rate-limits, filtering binaries, and parsing multi-language source trees.",
-        "Implemented intelligent AST-aware and recursive document chunking with metadata tagging (file paths, line spans).",
-        "Configured a ChromaDB vector store with cosine similarity retrieval and MMR (Maximal Marginal Relevance) re-ranking.",
-        "Orchestrated prompt engineering workflows ensuring zero hallucination by strictly constraining answers to retrieved context."
+        "Modular pipeline: github_loader.py (PyGithub + recursive file reads), document_processor.py (LangChain docs + splitter), vector_store.py (ChromaDB + retriever), rag_chain.py (prompt + LLM).",
+        "app.py owns the Streamlit UI, URL input, Analyze Repository flow, chat, and session state.",
+        "Authenticated GitHub token for higher API rate limits; HF_TOKEN for embeddings and the Hugging Face Router LLM.",
+        "Skips binaries and unsupported formats; designed for educational, repository-specific code understanding."
       ],
-      whatILearned: "Deepened mastery of vector databases, chunking strategies, embedding dimensions, context window limits, and prompt grounding techniques for production-grade RAG systems.",
+      whatILearned: "Applied end-to-end RAG: GitHub ingestion, embeddings, vector search, prompt grounding, LangChain orchestration, and API-key hygiene with python-dotenv.",
       category: "AI/ML",
-      technologies: ["Python", "LangChain", "Hugging Face", "ChromaDB", "Streamlit", "GitHub API", "Qwen2.5-72B"],
-      githubUrl: "https://github.com/ShravaniKale18",
+      technologies: ["Python", "Streamlit", "LangChain", "PyGithub", "Hugging Face", "ChromaDB", "Qwen 2.5 72B Instruct", "python-dotenv"],
+      githubUrl: "https://github.com/ShravaniKale18/Github-Repository-Assistant.git",
       liveUrl: undefined,
       featured: true,
-      stats: { metric: "72B LLM", label: "Model Architecture", highlight: "RAG Engine" },
+      stats: { metric: "72B LLM", label: "Qwen 2.5 Instruct", highlight: "RAG Engine" },
       status: "Completed",
       timeline: "2025 – 2026",
       isPlaceholder: false
@@ -215,8 +216,8 @@ export const PORTFOLIO_DATA = {
       whatILearned: "Learned autonomous agent orchestration patterns, state graph transitions, prompt isolation, and mitigating compounding errors in sequential agent workflows.",
       category: "AI/ML",
       technologies: ["Python", "Streamlit", "Multi-Agent Orchestration", "Prompt Engineering", "REST APIs"],
-      githubUrl: "https://github.com/ShravaniKale18",
-      liveUrl: "https://github.com/ShravaniKale18",
+      githubUrl: "https://github.com/ShravaniKale18/Multi-Agent-Research-System.git",
+      liveUrl: undefined,
       featured: true,
       stats: { metric: "3+ Agents", label: "Collaborative Pipeline", highlight: "Autonomous" },
       status: "Completed",
@@ -244,8 +245,8 @@ export const PORTFOLIO_DATA = {
       whatILearned: "Gained practical experience with data leakage prevention, regression evaluation metrics, serialization best practices, and deploying ML models for non-technical users.",
       category: "Python",
       technologies: ["Python", "Scikit-learn", "Pandas", "NumPy", "Streamlit", "Pickle", "Matplotlib"],
-      githubUrl: "https://github.com/ShravaniKale18",
-      liveUrl: "https://github.com/ShravaniKale18",
+      githubUrl: "https://github.com/ShravaniKale18/Student_Performance_Prediction.git",
+      liveUrl: undefined,
       featured: true,
       stats: { metric: "R² = 0.96", label: "Model Accuracy", highlight: "MAE 2.53" },
       status: "Completed",
@@ -280,6 +281,33 @@ export const PORTFOLIO_DATA = {
       stats: { metric: "87.04% Acc", label: "50K IMDB Dataset", highlight: "NLP & ML" },
       status: "Completed",
       timeline: "2025",
+      isPlaceholder: false
+    },
+    {
+      id: "dsa-practice-repository",
+      title: "Data Structures and Algorithms Practice Repository",
+      shortDescription: "Personal DSA solutions repository covering core data structures and algorithms used for academic coursework and competitive programming practice.",
+      problemSolved: "Interview and coursework problems need a single, version-controlled place to practice implementations, revisit patterns, and track progress beyond scattered notebooks.",
+      solution: "Maintained a dedicated GitHub repository of DSA programs — arrays, linked lists, trees, graphs, sorting, searching, recursion, and related problem-solving patterns in C++ and Python.",
+      keyFeatures: [
+        "Organized solutions for core data structures and algorithmic patterns.",
+        "Practice ground aligned with LeetCode-style problem solving (83+ problems tracked separately).",
+        "Reusable implementations for searching, sorting, recursion, and graph/tree traversals.",
+        "Public GitHub repo for review, revision, and sharing academic work."
+      ],
+      implementationDetails: [
+        "Implemented classic DSA programs and problem solutions in a structured GitHub repository.",
+        "Used the repo as a running log of algorithm practice alongside B.Tech IT coursework."
+      ],
+      whatILearned: "Reinforced time-complexity reasoning, pattern recognition, and clean implementation of foundational data structures.",
+      category: "Academic Projects",
+      technologies: ["C++", "Python", "Data Structures", "Algorithms", "LeetCode"],
+      githubUrl: "https://github.com/ShravaniKale18/Data-Structures-and-algorithms.git",
+      liveUrl: undefined,
+      featured: false,
+      stats: { metric: "DSA", label: "Practice Repo", highlight: "C++ & Python" },
+      status: "Ongoing",
+      timeline: "2024 – Present",
       isPlaceholder: false
     },
     {
@@ -469,24 +497,24 @@ export const PORTFOLIO_DATA = {
     tagline: "Building AI/LLM applications, predictive ML models, and full-stack software solutions.",
     repositoriesPreview: [
       {
-        name: "github-repo-assistant",
-        description: "AI-powered RAG application querying codebases using LangChain, ChromaDB, and Qwen2.5.",
+        name: "Github-Repository-Assistant",
+        description: "Chat with any GitHub repo using RAG, LangChain, ChromaDB, and Qwen 2.5 72B Instruct.",
         language: "Python",
-        stars: 5,
+        stars: 0,
         updated: "Recently updated"
       },
       {
-        name: "multi-agent-researcher",
+        name: "Multi-Agent-Research-System",
         description: "Autonomous multi-agent system orchestrating research workflows and report generation.",
         language: "Python",
-        stars: 4,
+        stars: 0,
         updated: "Active"
       },
       {
-        name: "student-performance-ml",
+        name: "Student_Performance_Prediction",
         description: "End-to-end ML prediction pipeline with 0.96 R² score and interactive Streamlit GUI.",
         language: "Python",
-        stars: 3,
+        stars: 0,
         updated: "Active"
       }
     ]
