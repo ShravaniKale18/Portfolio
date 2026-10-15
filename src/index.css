@@ -20,14 +20,17 @@
   ::-webkit-scrollbar {
     width: 8px;
   }
+
   ::-webkit-scrollbar-track {
     background: #030712;
   }
+
   ::-webkit-scrollbar-thumb {
     background: #1e294b;
     border-radius: 4px;
     border: 2px solid #030712;
   }
+
   ::-webkit-scrollbar-thumb:hover {
     background: #8b5cf6;
   }
@@ -78,6 +81,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -87,16 +91,20 @@
   from {
     transform: rotate(360deg);
   }
+
   to {
     transform: rotate(0deg);
   }
 }
 
 @keyframes pulse-subtle {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0.35;
     transform: scale(1);
   }
+
   50% {
     opacity: 0.7;
     transform: scale(1.03);
@@ -115,11 +123,52 @@
   animation: pulse-subtle 4s ease-in-out infinite;
 }
 
+/* Academic orbit — 3D milestone path */
+.academic-preserve-3d {
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+
+@keyframes academic-ring-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+
+  100% {
+    transform: scale(1.55);
+    opacity: 0;
+  }
+}
+
+@keyframes academic-travel {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-academic-ring-pulse {
+  animation: academic-ring-pulse 2.4s ease-out infinite;
+}
+
+.animate-academic-travel {
+  animation: academic-travel 22s linear infinite;
+}
+
+.animate-academic-travel-slow {
+  animation: academic-travel 38s linear infinite reverse;
+}
+
 /* Continuous marquee & smooth scroll track */
 @keyframes marquee-scroll {
   0% {
     transform: translateX(0%);
   }
+
   100% {
     transform: translateX(-50%);
   }
@@ -140,6 +189,7 @@
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -147,6 +197,7 @@
 
 
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
@@ -155,6 +206,7 @@
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+
   .animate-orbit-slow,
   .animate-orbit-reverse,
   .animate-pulse-subtle {
@@ -167,4 +219,3 @@
   outline: 2px solid #06b6d4;
   outline-offset: 3px;
 }
-
