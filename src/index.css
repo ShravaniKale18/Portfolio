@@ -72,3 +72,53 @@
   background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
   background-size: 24px 24px;
 }
+
+/* Personal Orbit custom animations */
+@keyframes orbit-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbit-spin-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.03);
+  }
+}
+
+.animate-orbit-slow {
+  animation: orbit-spin 35s linear infinite;
+}
+
+.animate-orbit-reverse {
+  animation: orbit-spin-reverse 45s linear infinite;
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-orbit-slow,
+  .animate-orbit-reverse,
+  .animate-pulse-subtle {
+    animation: none !important;
+  }
+}
