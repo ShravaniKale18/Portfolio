@@ -231,3 +231,181 @@
 .group:hover .flip-card-back {
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
 }
+
+/* -------------------------------------------------
+   3‑D Carousel helpers
+   ------------------------------------------------- */
+.perspective {
+  perspective: 1200px;
+  /* depth for the whole carousel */
+}
+
+/* The rotating wheel */
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 460px;
+  /* enough height for the cards */
+  overflow: visible;
+  transform-style: preserve-3d;
+  animation: rotateWheel 30s linear infinite;
+}
+
+/* Pause animation when the user clicks the pause button */
+.carousel.paused {
+  animation-play-state: paused;
+}
+
+/* Inner container that holds all cards */
+.carousel-inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-style: preserve-3d;
+  transform: translate(-50%, -50%);
+}
+
+/* Individual cards */
+.carousel-item {
+  position: absolute;
+  left: -50%;
+  /* center each card horizontally */
+  top: -50%;
+  /* center each card vertically */
+  transform-style: preserve-3d;
+  transition: transform 0.4s ease, box-shadow 0.3s;
+}
+
+/* Hover effect – bring the card to the front & slight tilt */
+.carousel-item:hover {
+  transform: translateZ(80px) rotateY(0deg) scale(1.05);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* Optional subtle entry fade‑up */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.carousel-item {
+  animation: fadeUp 0.8s ease forwards;
+}
+
+/* Wheel rotation */
+@keyframes rotateWheel {
+  from {
+    transform: rotateY(0deg);
+  }
+
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+/* -------------------------------------------------
+   3‑D Holographic Experience Wall (new design)
+   ------------------------------------------------- */
+
+/* Container that provides perspective for the whole wall */
+.holo-wall {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  /* enough height for large panels */
+  perspective: 1500px;
+  /* deeper perspective for stronger 3‑D feel */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  margin: 2rem 0;
+}
+
+/* Individual panels – placed on a virtual cylinder */
+.panel {
+  position: absolute;
+  width: 300px;
+  max-width: 90%;
+  background: linear-gradient(to bottom right,
+      var(--midnight-800), var(--midnight-900));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  transform-style: preserve-3d;
+  transition: transform 0.45s cubic-bezier(0.25, 0.8, 0.25, 1),
+    box-shadow 0.3s,
+    background 0.3s;
+  cursor: pointer;
+}
+
+/* Center panel – largest and fully facing user */
+.panel.center {
+  z-index: 3;
+  transform: translateZ(120px) rotateY(0deg);
+  width: 340px;
+}
+
+/* Left panel – slightly behind and angled */
+.panel.left {
+  z-index: 2;
+  transform: translateX(-30%) translateZ(60px) rotateY(25deg);
+  opacity: 0.85;
+}
+
+/* Right panel – mirror of left */
+.panel.right {
+  z-index: 2;
+  transform: translateX(30%) translateZ(60px) rotateY(-25deg);
+  opacity: 0.85;
+}
+
+/* Hover / focus – bring the panel forward and add glow */
+.panel:hover,
+.panel:focus-visible {
+  transform: translateZ(150px) rotateY(0deg) scale(1.02);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6),
+    0 0 12px var(--electric-cyan);
+  opacity: 1;
+  z-index: 4;
+}
+
+/* Navigation arrows – circles on each side */
+.nav-arrow {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  border-radius: 9999px;
+  color: var(--gray-400);
+  transition: background 0.2s, color 0.2s;
+}
+
+.nav-arrow:hover {
+  background: rgba(0, 0, 0, 0.7);
+  color: var(--gray-100);
+}
+
+/* Reduced‑motion – disable 3‑D animation when user prefers it */
+@media (prefers-reduced-motion: reduce) {
+  .panel {
+    transition: none;
+    transform: none !important;
+  }
+
+  .holo-wall {
+    perspective: none;
+  }
+}
+
+/* Modal overlay – slight polish (already used in the component) */
+.modal-overlay {
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+}
