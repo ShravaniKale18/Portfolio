@@ -89,18 +89,18 @@ export const ExperienceAchievements = () => {
     const badgeClass = isHackathon
       ? 'text-amber-400 bg-amber-400/10 border-amber-400/30'
       : isInternship
-      ? 'text-electric-cyan bg-electric-cyan/10 border-electric-cyan/30'
-      : 'text-electric-violet bg-electric-violet/10 border-electric-violet/30';
+        ? 'text-electric-cyan bg-electric-cyan/10 border-electric-cyan/30'
+        : 'text-electric-violet bg-electric-violet/10 border-electric-violet/30';
     const barGradient = isHackathon
       ? 'bg-gradient-to-r from-amber-400 via-electric-violet to-transparent'
       : isInternship
-      ? 'bg-gradient-to-r from-electric-cyan via-blue-500 to-transparent'
-      : 'bg-gradient-to-r from-electric-violet via-pink-500 to-transparent';
+        ? 'bg-gradient-to-r from-electric-cyan via-blue-500 to-transparent'
+        : 'bg-gradient-to-r from-electric-violet via-pink-500 to-transparent';
 
     return (
       <article
         key={item.id}
-        className={`panel ${position}`}
+        className={`panel ${position} glass-panel`}
         onClick={() => setModalItem(item)}
         aria-label={`Open details for ${item.role} at ${item.organization}`}
         role="button"
@@ -181,13 +181,13 @@ export const ExperienceAchievements = () => {
     const badgeClass = isHackathon
       ? 'text-amber-400 bg-amber-400/10 border-amber-400/30'
       : isInternship
-      ? 'text-electric-cyan bg-electric-cyan/10 border-electric-cyan/30'
-      : 'text-electric-violet bg-electric-violet/10 border-electric-violet/30';
+        ? 'text-electric-cyan bg-electric-cyan/10 border-electric-cyan/30'
+        : 'text-electric-violet bg-electric-violet/10 border-electric-violet/30';
     const barGradient = isHackathon
       ? 'bg-gradient-to-r from-amber-400 via-electric-violet to-transparent'
       : isInternship
-      ? 'bg-gradient-to-r from-electric-cyan via-blue-500 to-transparent'
-      : 'bg-gradient-to-r from-electric-violet via-pink-500 to-transparent';
+        ? 'bg-gradient-to-r from-electric-cyan via-blue-500 to-transparent'
+        : 'bg-gradient-to-r from-electric-violet via-pink-500 to-transparent';
 
     return (
       <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm" onClick={onClose} role="dialog" aria-modal="true">

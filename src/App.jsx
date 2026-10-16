@@ -8,7 +8,8 @@ import { Skills } from './components/Skills';
 import { Projects } from './components/Projects';
 import { Education } from './components/Education';
 import { Certifications } from './components/Certifications';
-import { ExperienceAchievements } from './components/ExperienceAchievements';
+import MissionControl from './components/MissionControl';
+
 import { LabJournal } from './components/LabJournal';
 import { GithubActivity } from './components/GithubActivity';
 import { Contact } from './components/Contact';
@@ -39,7 +40,7 @@ export function App() {
         <Projects />
         <Education />
         <Certifications />
-        <ExperienceAchievements />
+        <MissionControl />
         <LabJournal />
         <GithubActivity />
         <Contact />
